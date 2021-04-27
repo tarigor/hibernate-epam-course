@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="by.epam.hibernate.entity.Employee" table="employee" schema="hibernateexample">
+        <id name="id">
+            <column name="id" sql-type="int"/>
+            <generator class="native"/>
+        </id>
+        <property name="firstName">
+            <column name="first_name" sql-type="varchar(30)" length="30" not-null="true"/>
+        </property>
+        <property name="lastName">
+            <column name="last_name" sql-type="varchar(30)" length="30" not-null="true"/>
+        </property>
+        <property name="salary">
+            <column name="salary" sql-type="int" not-null="true"/>
+        </property>
+<!--        <set name="phonesById" table="phone" inverse="true" cascade="save-update" lazy="true" fetch="select">-->
+        <set name="phonesById" table="phone" inverse="true" cascade="save-update" lazy="true" fetch="select">
+            <key>
+                <column name="employee_id" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="by.epam.hibernate.entity.Phone"/>
+        </set>
+    </class>
+</hibernate-mapping>
