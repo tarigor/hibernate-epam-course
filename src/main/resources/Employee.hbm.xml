@@ -1,9 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE hibernate-mapping PUBLIC
-    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-
     <class name="by.epam.hibernate.entity.Employee" table="employee" schema="hibernateexample">
         <id name="id">
             <column name="id" sql-type="int"/>
@@ -18,8 +17,7 @@
         <property name="salary">
             <column name="salary" sql-type="int" not-null="true"/>
         </property>
-<!--        <set name="phonesById" table="phone" inverse="true" cascade="save-update" lazy="true" fetch="select">-->
-        <set name="phonesById" table="phone" inverse="true" cascade="save-update" lazy="true" fetch="select">
+        <set name="phonesById" cascade="save-update">
             <key>
                 <column name="employee_id" not-null="true"/>
             </key>

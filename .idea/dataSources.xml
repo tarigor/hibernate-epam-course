@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="MySQL - test@localhost" uuid="ce9309a1-73d3-43a2-adb1-86b365493337">
-      <driver-ref>mysql.8</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/MessageRepository</jdbc-url>
-    </data-source>
     <data-source source="LOCAL" name="hibernate.cfg.xml/Hibernate" uuid="00f0db90-fa0e-4fe6-9f00-11a63a4bdaea">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>

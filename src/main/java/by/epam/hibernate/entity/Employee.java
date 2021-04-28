@@ -2,12 +2,13 @@ package by.epam.hibernate.entity;
 
 import java.util.Collection;
 import java.util.Objects;
+import java.util.Scanner;
 
 public class Employee {
     private int id;
     private String firstName;
     private String lastName;
-    private int salary;
+    private Integer salary;
     private Collection<Phone> phonesById;
 
     public int getId() {
@@ -34,12 +35,22 @@ public class Employee {
         this.lastName = lastName;
     }
 
-    public int getSalary() {
+    public Integer getSalary() {
         return salary;
     }
 
-    public void setSalary(int salary) {
+    public void setSalary(Integer salary) {
         this.salary = salary;
+    }
+
+    public void setParameters(Scanner scanner) {
+        System.out.println("Input a first name:");
+        this.firstName = scanner.nextLine();
+        System.out.println("Input a last name:");
+        this.lastName = scanner.nextLine();
+        System.out.println("Input a salary");
+        this.salary = scanner.nextInt();
+        System.out.println("Do");
     }
 
     @Override
@@ -47,7 +58,7 @@ public class Employee {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return Objects.equals(id, employee.id) &&
+        return id == employee.id &&
                 Objects.equals(firstName, employee.firstName) &&
                 Objects.equals(lastName, employee.lastName) &&
                 Objects.equals(salary, employee.salary);
@@ -64,5 +75,12 @@ public class Employee {
 
     public void setPhonesById(Collection<Phone> phonesById) {
         this.phonesById = phonesById;
+    }
+
+    @Override
+    public String toString() {
+        System.out.print("id:"+id+" First Name:"+firstName + " Last Name:"+lastName+" Salary:"+salary + " Phones:");
+        phonesById.forEach(phone -> System.out.print(phone.getPhoneNumber()+" "));
+        return "";
     }
 }
